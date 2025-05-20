@@ -1,0 +1,75 @@
+<mvc:View
+    controllerName="csv.data.manager.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+    
+    <Page title="CSV Data Manager" showHeader="true">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <HBox justifyContent="SpaceBetween" alignItems="Center">
+                    <FileUploader
+                        id="fileUploader"
+                        name="csvFile"
+                        accept=".csv"
+                        change="onFileChange"
+                        class="sapUiSmallMarginEnd"/>
+                    <HBox>
+                        <Button
+                            text="Save"
+                            type="Emphasized"
+                            press="onSave"
+                            class="sapUiSmallMarginEnd"/>
+                        <Button
+                            text="Cancel"
+                            press="onCancel"/>
+                    </HBox>
+                </HBox>
+
+                <Table
+                    id="personTable"
+                    items="{
+                        path: '/Person',
+                        sorter: {
+                            path: 'ID'
+                        }
+                    }"
+                    growing="true"
+                    growingThreshold="10">
+                    <columns>
+                        <Column>
+                            <Text text="ID"/>
+                        </Column>
+                        <Column>
+                            <Text text="Name"/>
+                        </Column>
+                        <Column>
+                            <Text text="Birth Date"/>
+                        </Column>
+                        <Column>
+                            <Text text="Age"/>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{ID}"/>
+                                <Text text="{name}"/>
+                                <Text text="{
+                                    path: 'birthDate',
+                                    type: 'sap.ui.model.type.Date',
+                                    formatOptions: {
+                                        style: 'medium'
+                                    }
+                                }"/>
+                                <Text text="{age}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View> 

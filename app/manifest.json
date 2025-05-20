@@ -1,0 +1,70 @@
+{
+  "_version": "1.12.0",
+  "sap.app": {
+    "id": "csv.data.manager",
+    "type": "application",
+    "title": "CSV Data Manager",
+    "description": "Real-time CSV data management application",
+    "applicationVersion": {
+      "version": "1.0.0"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": false
+    }
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "csv.data.manager.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    },
+    "dependencies": {
+      "minUI5Version": "1.71",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "csv.data.manager.i18n.i18n"
+        }
+      },
+      "": {
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {}
+      }
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "csv.data.manager.view",
+        "controlId": "app",
+        "controlAggregation": "pages",
+        "async": true
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "main",
+          "target": "main"
+        }
+      ],
+      "targets": {
+        "main": {
+          "viewName": "Main"
+        }
+      }
+    }
+  }
+} 
